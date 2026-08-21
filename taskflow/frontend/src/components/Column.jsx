@@ -1,0 +1,3 @@
+import { Plus } from 'lucide-react';
+import TaskCard from './TaskCard';
+export default function Column({ column, tasks, onMove, onAdd }) { return <section className="column"><header className="column-head"><div><span className={`column-dot ${column.key}`}></span><h2>{column.label}</h2><span className="task-count">{tasks.length}</span></div><button className="icon-button" onClick={onAdd} aria-label={`Add task to ${column.label}`}><Plus size={18}/></button></header><div className="task-list">{tasks.map(task => <TaskCard key={task._id} task={task} onMove={onMove}/>)}{tasks.length === 0 && <button className="empty-add" onClick={onAdd}>Add the first task <Plus size={15}/></button>}</div></section>; }
